@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    height: 7vw;
+    margin: 0 auto;
+}
+
+.logo {
+    height: 6vw;
+    width: 6vw;
+}
+
+.cart {
+    width: 2vw;
+    height: 2vw;
+    color: black;
+}

@@ -1,0 +1,18 @@
+form {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+input {
+    width: 90%;
+}
+
+.searchButton {
+    transform: scale(1.3);
+    transition: 0.1s;
+}
+
+.searchButton:hover {
+    cursor: pointer;
+}
