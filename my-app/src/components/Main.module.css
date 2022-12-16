@@ -1,0 +1,22 @@
+.main {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 2vw;
+}
+
+.items {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1vw;
+    background-color: rgb(247, 250, 252);
+}
+
+.filters {
+    width: 20%;
+    height: 30vw;
+    border: 1px black solid;
+    margin-right: 1vw;
+}

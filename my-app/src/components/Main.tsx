@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { IItem, IData } from '../interfaces/interfaces';
+import styles from './Main.module.css';
 import Item from './Item';
 
 const API_URL = 'https://dummyjson.com/products';
@@ -21,15 +22,18 @@ function Main() {
   console.log(items);
 
   return (
-    <>
-      {isLoading ? (
-        <h1>Loading...</h1>
-      ) : (
-        items.map((el) => {
-          return <Item {...el} key={el.id} />;
-        })
-      )}
-    </>
+    <div className={styles.main}>
+      <div className={styles.filters}></div>
+      <div className={styles.items}>
+        {isLoading ? (
+          <h1>Loading...</h1>
+        ) : (
+          items.map((el) => {
+            return <Item {...el} key={el.id} />;
+          })
+        )}
+      </div>
+    </div>
   );
 }
 
