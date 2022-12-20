@@ -19,8 +19,6 @@ function Main() {
       });
   }, []);
 
-  console.log(items);
-
   return (
     <div className={styles.main}>
       <div className={styles.filters}></div>
@@ -38,14 +36,3 @@ function Main() {
 }
 
 export default Main;
-
-/*items.map((el: IItem) => {
-  return (
-    <Item
-      id={el.id}
-      title={el.title}
-      description={el.description}
-      key={el.id}
-    />
-  );
-})*/

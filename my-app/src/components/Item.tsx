@@ -1,4 +1,5 @@
 import { IItem } from '../interfaces/interfaces';
+import Button from './UI/Buttons/Button';
 import styles from './Item.module.css';
 
 function Item(props: IItem) {
@@ -31,7 +32,7 @@ function Item(props: IItem) {
           )} $`}
           <span className={styles.discount}>{`${props.price} $`}</span>
         </p>
-        <button>Купить</button>
+        <Button>Купить</Button>
       </div>
     </div>
   );
