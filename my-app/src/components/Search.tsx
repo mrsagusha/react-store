@@ -6,7 +6,7 @@ import Input from './UI/Input/Input';
 function Search() {
   return (
     <form>
-      <Input placeholder="Search..." />
+      <Input placeholder="Search" />
       <IoMdSearch className={styles.searchButton} />
     </form>
   );

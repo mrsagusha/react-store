@@ -1,24 +1,9 @@
-import { useEffect, useState } from 'react';
-import { IItem, IData } from '../interfaces/interfaces';
 import styles from './Main.module.css';
+import { Link } from 'react-router-dom';
 import Item from './Item';
+import { IItem } from '../interfaces/interfaces';
 
-const API_URL = 'https://dummyjson.com/products';
-
-function Main() {
-  const [items, setItems] = useState<IItem[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    fetch(API_URL)
-      .then((res) => res.json())
-      .then((data: IData) => setItems(data.products))
-      .catch((error) => console.log(error))
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, []);
-
+function Main({ items, isLoading }: { items: IItem[]; isLoading: boolean }) {
   return (
     <div className={styles.main}>
       <div className={styles.filters}></div>
@@ -27,7 +12,11 @@ function Main() {
           <h1>Loading...</h1>
         ) : (
           items.map((el) => {
-            return <Item {...el} key={el.id} />;
+            return (
+              <Link to={el.title}>
+                <Item {...el} key={el.id} />
+              </Link>
+            );
           })
         )}
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ButtonProps } from '../../../interfaces/interfaces';
-import styles from '../../Item.module.css';
+import styles from './Button.module.css';
 
 function Button({ children, ...props }: ButtonProps) {
   return (
