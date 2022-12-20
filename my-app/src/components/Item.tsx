@@ -1,5 +1,5 @@
 import { IItem } from '../interfaces/interfaces';
-import Button from './UI/Buttons/Button';
+import Button from './UI/Button/Button';
 import styles from './Item.module.css';
 
 function Item(props: IItem) {
