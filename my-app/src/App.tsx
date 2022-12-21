@@ -2,10 +2,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { IItem, IData } from './interfaces/interfaces';
 import Main from './components/Main';
-import './App.css';
 import MainLayout from './layoutes/MainLayout';
 import Cart from './components/Cart';
 import SingleItem from './components/SingleItem';
+import './App.css';
 
 const API_URL = 'https://dummyjson.com/products';
 

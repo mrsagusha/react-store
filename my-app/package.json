@@ -44,6 +44,7 @@
   "devDependencies": {
     "browser-router": "^0.2.0",
     "prettier": "2.8.1",
+    "query-string": "^8.1.0",
     "react-icons": "^4.7.1"
   }
 }
