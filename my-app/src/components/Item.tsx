@@ -32,7 +32,7 @@ function Item(props: IItem) {
           )} $`}
           <span className={styles.discount}>{`${props.price} $`}</span>
         </p>
-        <Button>Купить</Button>
+        <Button>Buy</Button>
       </div>
     </div>
   );

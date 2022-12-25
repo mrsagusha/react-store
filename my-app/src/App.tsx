@@ -23,6 +23,8 @@ function App() {
       });
   }, []);
 
+  console.log(items);
+
   return (
     <BrowserRouter>
       <div className="App">

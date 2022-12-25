@@ -1,0 +1,58 @@
+.wrapper {
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 3vw;
+}
+
+.singleItemWrapper {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 7vw
+}
+
+.rating span {
+    padding: 0;
+	font-size: 1.5vw;
+	line-height: 1;
+	color: lightgrey;
+}
+
+.rating > span:before {
+	content: '★';
+}
+
+.rating > span.active {
+	color: gold;
+}
+
+.itemUnderTitle {
+    font-size: 1vw;
+    font-size: 1vw;
+    font-weight: 600;
+}
+
+.discount {
+    text-decoration: line-through;
+    margin-left: 0.7vw;
+    font-size: 0.8vw;
+    color: rgb(117, 116, 116);
+    font-weight: 600;
+}
+
+.discountPercentage {
+    position: absolute;
+    z-index: 10;
+    padding: 0.3vw;
+    background-color: rgb(3, 184, 63);
+    border-radius: 10%;
+    color: white;
+    font-weight: 600;
+}
+ 
+.itemUnderTitle {
+    font-size: 1vw;
+    font-weight: 600;
+    margin-top: 0.6vw;
+    margin-bottom: 0.3vw;
+}

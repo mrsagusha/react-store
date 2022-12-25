@@ -7,7 +7,7 @@ export interface IItem {
   images: string[];
   price: number;
   rating: number;
-  srock: number;
+  stock: number;
   thumbnail: string;
   title: string;
 }

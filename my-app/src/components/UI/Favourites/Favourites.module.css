@@ -1,0 +1,20 @@
+.favourites {
+    display: flex;
+    gap: 0.5vw;
+    margin: 0.6vw 0;
+}
+
+p,
+.like {
+    transition: .2s;
+}
+
+.favourites:hover p {
+    cursor: pointer;
+    color: red;
+}
+
+.favourites:hover .like {
+    fill: red;
+    cursor: pointer;
+}

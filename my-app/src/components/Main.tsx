@@ -15,9 +15,13 @@ function Main({ items, isLoading }: { items: IItem[]; isLoading: boolean }) {
         ) : (
           items
             .filter((el) => {
-              return (el.title && el.description)
-                .toLowerCase()
-                .includes(searchParams.get('search')?.toLowerCase()!);
+              if (searchParams.get('search')) {
+                return (el.title && el.description)
+                  .toLowerCase()
+                  .includes(searchParams.get('search')!.toLowerCase());
+              }
+
+              return el;
             })
             .map((el) => {
               return (

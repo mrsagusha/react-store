@@ -29,7 +29,7 @@ function Search() {
           setSearchText(e.target.value);
         }}
       />
-      <IoMdSearch className={styles.searchButton} />
+      <IoMdSearch className={styles.searchButton} onClick={handleSubmit} />
     </form>
   );
 }
