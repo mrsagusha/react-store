@@ -6,7 +6,7 @@ form {
 }
 
 .searchButton {
-    transform: scale(1.8);
+    transform: scale(1.5);
     color: rgb(241, 61, 61);
     transition: 0.3s;
 }

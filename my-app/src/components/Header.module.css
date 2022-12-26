@@ -8,12 +8,19 @@
 }
 
 .logo {
-    height: 6vw;
-    width: 6vw;
+    height: 4vw;
+    width: 4vw;
 }
 
 .cart {
-    width: 2vw;
-    height: 2vw;
+    width: 1.5vw;
+    height: 1.5vw;
     color: black;
+}
+
+.favourites {
+    fill: red;
+    width: 1.5vw;
+    height: 1.5vw;
+    margin-right: 2vw;
 }

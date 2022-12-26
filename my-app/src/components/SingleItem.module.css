@@ -2,6 +2,9 @@
     margin: 0 auto;
     width: 70%;
     margin-top: 3vw;
+    background-color: white;
+    min-height: 100%;
+    padding: 2vw;
 }
 
 .singleItemWrapper {
@@ -55,4 +58,32 @@
     font-weight: 600;
     margin-top: 0.6vw;
     margin-bottom: 0.3vw;
+}
+
+.mainItemImage {
+    width: 70%;
+}
+
+img {
+    width: 90%;
+    object-fit: contain;
+}
+
+img:hover {
+    cursor: pointer;
+}
+
+.imageSlider {
+    display: flex;
+    height: 20vw;
+    width: 50%;
+}
+
+.sideImageSlider {
+    width: 30%;
+    overflow: auto;
+}
+
+.sideImageSlider::-webkit-scrollbar {
+    width: 0;
 }

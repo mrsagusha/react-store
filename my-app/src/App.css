@@ -3,6 +3,11 @@
   margin: 0;
 }
 
+.App {
+  background-color: rgb(247, 250, 252);
+  min-height: 100vh;
+}
+
 a {
   text-decoration: none;
   color: inherit;

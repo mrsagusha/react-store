@@ -1,19 +1,52 @@
-import { useParams } from 'react-router-dom';
 import { IItem } from '../interfaces/interfaces';
+import { useParams } from 'react-router-dom';
 import Button from './UI/Button/Button';
-import Favourites from './UI/Favourites/Favourites';
+import FavouritesButton from './UI/Favourites/FavouritesButton';
 import styles from './SingleItem.module.css';
+import { useState } from 'react';
+import { Params } from 'react-router-dom';
 
-function SingleItem({ items }: { items: IItem[] }) {
+function SingleItem({
+  items,
+  isLoading,
+  findItem,
+  addFavourites,
+}: {
+  items: IItem[];
+  isLoading: boolean;
+  findItem(params: Readonly<Params<string>>): IItem | undefined;
+  addFavourites(item: IItem): void;
+}) {
   const params = useParams();
-  const item = items.find((el: IItem) => el.title === params.title);
+  const item = findItem(params);
+  const [mainImageSrc, setMainImageSrc] = useState(item?.images[0]);
 
   return (
     <div className={styles.wrapper}>
       <h1>{item?.title}</h1>
-      <Favourites />
+      <FavouritesButton onClick={() => addFavourites(item!)} />
       <div className={styles.singleItemWrapper}>
-        <img src={item?.images[0]} alt="" />
+        <div className={styles.imageSlider}>
+          <div className={styles.sideImageSlider}>
+            {item?.images.map((el) => {
+              return (
+                <img
+                  key={Math.random()}
+                  src={el}
+                  alt={item.title}
+                  onClick={() => {
+                    setMainImageSrc(el);
+                  }}
+                />
+              );
+            })}
+          </div>
+          <img
+            className={styles.mainItemImage}
+            src={mainImageSrc ? mainImageSrc : item?.images[0]}
+            alt=""
+          />
+        </div>
         <div>
           <p className={styles.itemUnderTitle}>
             {`${Math.floor(
