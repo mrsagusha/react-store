@@ -1,0 +1,28 @@
+.favouritesWrapper {
+    position: relative;
+}
+
+.favourites {
+    fill: black;
+    width: 1.5vw;
+    height: 1.5vw;
+    margin-right: 2vw;
+}
+
+.favouritesQuantityWrapper {
+    position: absolute;
+    top: -0.5vw;
+    right: 1.3vw;
+    width: 1vw;
+    height: 1vw;
+    background-color: red;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.favouritesQuantity {
+    font-size: 0.7vw;
+    color: white;
+}

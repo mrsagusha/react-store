@@ -14,6 +14,7 @@ function App() {
   const [items, setItems] = useState<IItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [favourites, setFavourites] = useState<IItem[]>([]);
+  const [favouritesQuantity, setFavouritesQuantity] = useState('0');
 
   useEffect(() => {
     fetch(API_URL)
@@ -32,8 +33,10 @@ function App() {
   function toggleFavouritesHandler(item: IItem) {
     if (!favourites.includes(item)) {
       setFavourites([...favourites, item]);
+      setFavouritesQuantity((+favouritesQuantity + 1).toString());
     } else {
       setFavourites([...favourites.filter((el: IItem) => el !== item)]);
+      setFavouritesQuantity((+favouritesQuantity - 1).toString());
     }
   }
 
@@ -41,7 +44,10 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<MainLayout />}>
+          <Route
+            path="/"
+            element={<MainLayout favouritesQuantity={favouritesQuantity} />}
+          >
             <Route
               index
               element={<Main items={items} isLoading={isLoading} />}

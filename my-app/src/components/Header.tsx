@@ -1,11 +1,11 @@
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { MdFavoriteBorder } from 'react-icons/md';
 import { Link, useLocation } from 'react-router-dom';
 import Search from './Search';
 import logo from '../assets/logo.png';
 import styles from './Header.module.css';
+import FavouritesIcon from './UI/Favourites/FavouritesIcon';
 
-function Header() {
+function Header({ favouritesQuantity }: { favouritesQuantity: string }) {
   return (
     <div className={styles.header}>
       <Link to="/">
@@ -14,7 +14,7 @@ function Header() {
       {useLocation().pathname === '/' && <Search />}
       <div className={styles.tabs}>
         <Link to="favourites">
-          <MdFavoriteBorder className={styles.favourites} title="Favourites" />
+          <FavouritesIcon quantity={favouritesQuantity} />
         </Link>
         <Link to="cart">
           <AiOutlineShoppingCart className={styles.cart} title="Cart" />

@@ -1,7 +1,15 @@
-import React from 'react';
+import { MdFavoriteBorder } from 'react-icons/md';
+import styles from './FavouritesIcon.module.css';
 
-function FavouritesIcon() {
-  return <div>FavouritesIcon</div>;
+function FavouritesIcon({ quantity }: { quantity: string }) {
+  return (
+    <div className={styles.favouritesWrapper}>
+      <MdFavoriteBorder className={styles.favourites} title="Favourites" />
+      <div className={styles.favouritesQuantityWrapper}>
+        <p className={styles.favouritesQuantity}>{quantity}</p>
+      </div>
+    </div>
+  );
 }
 
 export default FavouritesIcon;
