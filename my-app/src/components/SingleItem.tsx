@@ -10,21 +10,34 @@ function SingleItem({
   items,
   isLoading,
   findItem,
-  addFavourites,
+  toggleFavourites,
+  favourites,
 }: {
   items: IItem[];
   isLoading: boolean;
   findItem(params: Readonly<Params<string>>): IItem | undefined;
-  addFavourites(item: IItem): void;
+  toggleFavourites(item: IItem): void;
+  favourites: IItem[];
 }) {
   const params = useParams();
   const item = findItem(params);
   const [mainImageSrc, setMainImageSrc] = useState(item?.images[0]);
+  const [isFavourite, setIsFavourite] = useState(favourites.includes(item!));
+
+  function toggleIsFavourite() {
+    !isFavourite ? setIsFavourite(true) : setIsFavourite(false);
+  }
 
   return (
     <div className={styles.wrapper}>
       <h1>{item?.title}</h1>
-      <FavouritesButton onClick={() => addFavourites(item!)} />
+      <FavouritesButton
+        onClick={() => {
+          toggleFavourites(item!);
+          toggleIsFavourite();
+        }}
+        isFavourite={isFavourite}
+      />
       <div className={styles.singleItemWrapper}>
         <div className={styles.imageSlider}>
           <div className={styles.sideImageSlider}>

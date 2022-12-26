@@ -1,12 +1,27 @@
 import React from 'react';
-import { MdFavoriteBorder } from 'react-icons/md';
+import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import styles from './FavouritesButton.module.css';
 
-function FavouritesButton({ onClick }: { onClick(): void }) {
+function FavouritesButton({
+  onClick,
+  isFavourite,
+}: {
+  onClick(): void;
+  isFavourite: boolean;
+}) {
   return (
     <div className={styles.favourites} onClick={onClick}>
-      <MdFavoriteBorder className={styles.like} />
-      <p>Favourites</p>
+      {isFavourite ? (
+        <>
+          <MdFavorite className={styles.like} />
+          <p>Favourite</p>
+        </>
+      ) : (
+        <>
+          <MdFavoriteBorder className={styles.like} />
+          <p>Favourite</p>
+        </>
+      )}
     </div>
   );
 }

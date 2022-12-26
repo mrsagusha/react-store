@@ -11,6 +11,10 @@ p,
     transition: .2s;
 }
 
+.like {
+    fill: red;
+}
+
 .favourites:hover p {
     cursor: pointer;
     color: red;

@@ -29,8 +29,12 @@ function App() {
     return items.find((el: IItem) => el.title === params.title);
   }
 
-  function addFavouritesHandler(item: IItem) {
-    if (!favourites.includes(item)) setFavourites([...favourites, item]);
+  function toggleFavouritesHandler(item: IItem) {
+    if (!favourites.includes(item)) {
+      setFavourites([...favourites, item]);
+    } else {
+      setFavourites([...favourites.filter((el: IItem) => el !== item)]);
+    }
   }
 
   return (
@@ -54,7 +58,8 @@ function App() {
                   items={items}
                   isLoading={isLoading}
                   findItem={findItemHandler}
-                  addFavourites={addFavouritesHandler}
+                  toggleFavourites={toggleFavouritesHandler}
+                  favourites={favourites}
                 />
               }
             />
