@@ -1,5 +1,6 @@
 import { IItem } from '../interfaces/interfaces';
 import Button from './UI/Button/Button';
+import RatingStars from './UI/RatingStars/RatingStars';
 import styles from './Item.module.css';
 
 function Item(props: IItem) {
@@ -17,15 +18,7 @@ function Item(props: IItem) {
       </div>
       <div>
         <p className={styles.itemTitle}>{props.title}</p>
-        <div className={styles.rating} title={props.rating.toString()}>
-          <span className={props.rating >= 1 ? styles.active : ''}></span>
-          <span className={props.rating >= 2 ? styles.active : ''}></span>
-          <span className={props.rating >= 3 ? styles.active : ''}></span>
-          <span className={props.rating >= 4 ? styles.active : ''}></span>
-          <span
-            className={Math.round(props.rating) === 5 ? styles.active : ''}
-          ></span>
-        </div>
+        <RatingStars item={props} />
         <p className={styles.price}>
           {`${Math.floor(
             props.price - props.price * (props.discountPercentage / 100)

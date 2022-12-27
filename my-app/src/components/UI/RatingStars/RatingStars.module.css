@@ -1,0 +1,18 @@
+.rating {
+	margin: 0.5vw 0;
+}
+
+.rating span {
+    padding: 0;
+	font-size: 1.5vw;
+	line-height: 1;
+	color: lightgrey;
+}
+
+.rating > span:before {
+	content: '★';
+}
+
+.rating > span.active {
+	color: gold;
+}

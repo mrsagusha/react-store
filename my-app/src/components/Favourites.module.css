@@ -1,0 +1,48 @@
+.favouritesItemsWrapper {
+    width: 70%;
+    margin: 0 auto;
+    background-color: white;
+    padding:  2vw 2vw 0 2vw;
+}
+
+.favouritesItem {
+    display: flex;
+    gap: 3vw;
+    max-height: 6vw;
+    padding: 1vw 0;
+}
+
+.favouritesItemImage {
+    width: 35%;
+    object-fit: contain;
+}
+
+.favouritesItemInfo {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.favouritemItemDescription {
+    width: 50%;
+}
+
+.favouritemItemTitle {
+    font-size: 1.5vw;
+    font-weight: 600;
+    margin-bottom: 0.5vw;
+}
+
+.favouritemItemPrice {
+    font-size: 1vw;
+    font-weight: 600;
+    margin-bottom: 0.5vw;
+}
+
+.discount {
+    font-size: 0.7vw;
+    font-weight: 600;
+    color: rgb(117, 116, 116);
+    text-decoration: line-through;
+}

@@ -1,10 +1,11 @@
 import { IItem } from '../interfaces/interfaces';
 import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { Params } from 'react-router-dom';
 import Button from './UI/Button/Button';
 import FavouritesButton from './UI/Favourites/FavouritesButton';
 import styles from './SingleItem.module.css';
-import { useState } from 'react';
-import { Params } from 'react-router-dom';
+import RatingStars from './UI/RatingStars/RatingStars';
 
 function SingleItem({
   items,
@@ -20,7 +21,7 @@ function SingleItem({
   favourites: IItem[];
 }) {
   const params = useParams();
-  const item = findItem(params);
+  const item: IItem | undefined = findItem(params);
   const [mainImageSrc, setMainImageSrc] = useState(item?.images[0]);
   const [isFavourite, setIsFavourite] = useState(favourites.includes(item!));
 
@@ -74,15 +75,7 @@ function SingleItem({
           <p className={styles.itemUnderTitle}>Description:</p>
           <p>{item?.description}</p>
           <p className={styles.itemUnderTitle}>Rating:</p>
-          <div className={styles.rating} title={item?.rating.toString()}>
-            <span className={item?.rating! >= 1 ? styles.active : ''}></span>
-            <span className={item?.rating! >= 2 ? styles.active : ''}></span>
-            <span className={item?.rating! >= 3 ? styles.active : ''}></span>
-            <span className={item?.rating! >= 4 ? styles.active : ''}></span>
-            <span
-              className={Math.round(item?.rating!) === 5 ? styles.active : ''}
-            ></span>
-          </div>
+          <RatingStars item={item} />
           <p className={styles.itemUnderTitle}>Stock:</p>
           <p>{item?.stock}</p>
         </div>
