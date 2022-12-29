@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { IItem } from '../interfaces/interfaces';
 import styles from './Favourites.module.css';
@@ -15,7 +16,7 @@ function Favourites({ favourites }: { favourites: IItem[] }) {
       ) : (
         favourites.map((el) => {
           return (
-            <>
+            <Fragment key={el.id}>
               <hr />
               <div className={styles.favouritesItem}>
                 <Link style={{ textAlign: 'center' }} to={`/${el.title}`}>
@@ -39,7 +40,7 @@ function Favourites({ favourites }: { favourites: IItem[] }) {
                   <Button>Buy</Button>
                 </div>
               </div>
-            </>
+            </Fragment>
           );
         })
       )}

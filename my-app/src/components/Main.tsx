@@ -1,14 +1,15 @@
 import { Link, useSearchParams } from 'react-router-dom';
-import styles from './Main.module.css';
-import Item from './Item';
 import { IItem } from '../interfaces/interfaces';
+import Item from './Item';
+import Filters from './Filters';
+import styles from './Main.module.css';
 
 function Main({ items, isLoading }: { items: IItem[]; isLoading: boolean }) {
   const [searchParams, setSearchParams] = useSearchParams('');
 
   return (
     <div className={styles.main}>
-      <div className={styles.filters}></div>
+      <Filters items={items} />
       <div className={styles.items}>
         {isLoading ? (
           <h1>Loading...</h1>

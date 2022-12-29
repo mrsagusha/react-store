@@ -1,0 +1,13 @@
+.filters {
+    width: 20%;
+    border: 1px black solid;
+    margin-right: 1vw;
+}
+
+.filtersWrapper {
+    display: none;
+}
+
+.active {
+    display: flex;
+}

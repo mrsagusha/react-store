@@ -13,10 +13,3 @@
     gap: 1vw;
     background-color: rgb(247, 250, 252);
 }
-
-.filters {
-    width: 20%;
-    height: 30vw;
-    border: 1px black solid;
-    margin-right: 1vw;
-}
