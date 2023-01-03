@@ -27,3 +27,12 @@
 .active {
     display: flex;
 }
+
+.checkbox,
+.checkboxLabel:hover {
+    cursor: pointer;
+}
+
+.checkbox {
+    margin-right: 0.3vw;
+}

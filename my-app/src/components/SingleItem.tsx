@@ -12,12 +12,14 @@ function SingleItem({
   isLoading,
   findItem,
   toggleFavourites,
+  toggleItemInCart,
   favourites,
 }: {
   items: IItem[];
   isLoading: boolean;
   findItem(params: Readonly<Params<string>>): IItem | undefined;
   toggleFavourites(item: IItem): void;
+  toggleItemInCart(item: IItem): void;
   favourites: IItem[];
 }) {
   const params = useParams();
@@ -68,7 +70,12 @@ function SingleItem({
             )} $`}
             <span className={styles.discount}>{`${item?.price} $`}</span>
           </p>
-          <Button style={{ marginRight: '1vw' }}>Add to cart</Button>
+          <Button
+            style={{ marginRight: '1vw' }}
+            onClick={() => toggleItemInCart(item!)}
+          >
+            Add to cart
+          </Button>
           <Button>Buy</Button>
           <p className={styles.itemUnderTitle}>Brand:</p>
           <p>{item?.brand}</p>

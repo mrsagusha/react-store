@@ -20,7 +20,9 @@ function FiltersSection({
   return (
     <div className={styles.filtersSectionWrapper}>
       <Button style={{ width: '100%' }} onClick={toggleIsActive}>
-        {category}
+        {category === 'price'
+          ? `${category[0].toUpperCase() + category.slice(1)}, $`
+          : category[0].toUpperCase() + category.slice(1)}
       </Button>
       <FiltersCheckboxes
         isActive={isActive}

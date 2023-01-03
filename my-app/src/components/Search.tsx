@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { IoMdSearch } from 'react-icons/io';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import './Search.module.css';
 import styles from './Search.module.css';
 import Input from './UI/Input/Input';

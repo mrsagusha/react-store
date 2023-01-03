@@ -15,6 +15,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [favourites, setFavourites] = useState<IItem[]>([]);
   const [favouritesQuantity, setFavouritesQuantity] = useState('0');
+  const [itemsInCart, setItemsInCart] = useState<IItem[]>([]);
 
   useEffect(() => {
     fetch(API_URL)
@@ -40,19 +41,32 @@ function App() {
     }
   }
 
+  function toggleItemInCartHandler(item: IItem) {
+    if (!itemsInCart.includes(item)) {
+      setItemsInCart([...itemsInCart, item]);
+    } else {
+      setItemsInCart([...itemsInCart.filter((el: IItem) => el !== item)]);
+    }
+    console.log(itemsInCart);
+  }
+
   return (
     <BrowserRouter>
       <div className="App">
         <Routes>
           <Route
             path="/"
-            element={<MainLayout favouritesQuantity={favouritesQuantity} />}
+            element={
+              <MainLayout
+                favouritesQuantity={favouritesQuantity}
+                itemsInCart={itemsInCart}
+              />
+            }
           >
             <Route
               index
               element={<Main items={items} isLoading={isLoading} />}
             />
-            <Route path="cart" element={<Cart />} />
             <Route
               path="favourites"
               element={<Favourites favourites={favourites} />}
@@ -65,6 +79,7 @@ function App() {
                   isLoading={isLoading}
                   findItem={findItemHandler}
                   toggleFavourites={toggleFavouritesHandler}
+                  toggleItemInCart={toggleItemInCartHandler}
                   favourites={favourites}
                 />
               }

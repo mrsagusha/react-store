@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { IItem } from '../interfaces/interfaces';
 import styles from './FiltersCheckboxes.module.css';
 import Input from './UI/Input/Input';
+import InputRange from './UI/Input/InputRange';
 
 function FiltersCheckboxes({
   isActive,
@@ -11,8 +13,19 @@ function FiltersCheckboxes({
   items: IItem[];
   category: keyof Omit<IItem, 'images'>;
 }) {
-  function filterItems(array: IItem[], category: keyof Omit<IItem, 'images'>) {
-    const seen: any = {};
+  function findMaxValue(category: keyof Omit<IItem, 'images'>): number {
+    let maxValue = 0;
+    items.forEach((item: IItem) => {
+      if (item[category] > maxValue) maxValue = Number(item[category]);
+    });
+    return maxValue;
+  }
+
+  function filterReccuringCategories(
+    array: IItem[],
+    category: keyof Omit<IItem, 'images'>
+  ) {
+    const seen: any = {}; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     const result = array.filter((item: IItem) => {
       if (seen[item[category]]) {
         return false;
@@ -33,12 +46,12 @@ function FiltersCheckboxes({
       }
     >
       {category === 'price' || category === 'stock' ? (
-        <Input type="range" />
+        <InputRange maxValue={findMaxValue(category)} />
       ) : (
-        filterItems(items, category).map((item: IItem) => {
+        filterReccuringCategories(items, category).map((item: IItem) => {
           return (
-            <label key={item.id}>
-              <input type="checkbox" />
+            <label className={styles.checkboxLabel} key={item.id}>
+              <input className={styles.checkbox} type="checkbox" />
               {item[category]}
             </label>
           );

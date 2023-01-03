@@ -4,8 +4,16 @@ import Search from './Search';
 import logo from '../assets/logo.png';
 import styles from './Header.module.css';
 import FavouritesIcon from './UI/Favourites/FavouritesIcon';
+import Cart from './Cart';
+import { IItem } from '../interfaces/interfaces';
 
-function Header({ favouritesQuantity }: { favouritesQuantity: string }) {
+function Header({
+  favouritesQuantity,
+  itemsInCart,
+}: {
+  favouritesQuantity: string;
+  itemsInCart: IItem[];
+}) {
   return (
     <div className={styles.header}>
       <Link to="/">
@@ -16,9 +24,10 @@ function Header({ favouritesQuantity }: { favouritesQuantity: string }) {
         <Link to="favourites">
           <FavouritesIcon quantity={favouritesQuantity} />
         </Link>
-        <Link to="cart">
+        <div>
           <AiOutlineShoppingCart className={styles.cart} title="Cart" />
-        </Link>
+          <Cart itemsInCart={itemsInCart} />
+        </div>
       </div>
     </div>
   );

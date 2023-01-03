@@ -1,0 +1,59 @@
+.cartWrapper {
+    position: absolute;
+    min-height: 10vw;
+    width: 15vw;
+    z-index: 20;
+    box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    background-color: white;
+    border-radius: 5px;
+}
+
+.itemsInCart {
+    min-height: 4vw;
+}
+
+.amountToBePaid {
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+    justify-content: center;
+    min-height: 3vw;
+}
+
+.itemInCartWrapper {
+    display: flex;
+    gap: 1vw;
+    padding: 1vw;
+    border-bottom: 1px rgb(199, 198, 198) solid;
+}
+
+.itemInCartImageWrapper {
+    width: 30%;
+}
+
+.discount {
+    text-decoration: line-through;
+    margin-left: 0.7vw;
+    font-size: 0.8vw;
+    color: rgb(117, 116, 116);
+    font-weight: 600;
+}
+
+.discountPercentage {
+    position: absolute;
+    z-index: 10;
+    padding: 0.3vw;
+    background-color: rgb(3, 184, 63);
+    border-radius: 10%;
+    color: white;
+    font-weight: 600;
+}
+
+.itemInCartImage {
+    object-fit: contain;
+}
+
+.totalSum {
+    font-size: 0.9vw;
+    font-weight: 600;
+}
