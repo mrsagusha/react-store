@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Link, useLocation } from 'react-router-dom';
 import Search from './Search';
@@ -10,10 +11,24 @@ import { IItem } from '../interfaces/interfaces';
 function Header({
   favouritesQuantity,
   itemsInCart,
+  toggleItemInCart,
 }: {
   favouritesQuantity: string;
   itemsInCart: IItem[];
+  toggleItemInCart(item: IItem): void;
 }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  function changeHoveredOverHandler() {
+    setIsHovered(true);
+    console.log(isHovered);
+  }
+
+  function changeHoveredOutHandler() {
+    setIsHovered(false);
+    console.log(isHovered);
+  }
+
   return (
     <div className={styles.header}>
       <Link to="/">
@@ -24,9 +39,20 @@ function Header({
         <Link to="favourites">
           <FavouritesIcon quantity={favouritesQuantity} />
         </Link>
-        <div>
+        <div
+          className={styles.itemsInCartWrapper}
+          onMouseOver={changeHoveredOverHandler}
+          onMouseOut={changeHoveredOutHandler}
+        >
           <AiOutlineShoppingCart className={styles.cart} title="Cart" />
-          <Cart itemsInCart={itemsInCart} />
+          <div className={styles.itemsInCartQuantityWrapper}>
+            <p className={styles.itemsInCartQuantity}>{itemsInCart.length}</p>
+          </div>
+          <Cart
+            toggleItemInCart={toggleItemInCart}
+            isHovered={isHovered}
+            itemsInCart={itemsInCart}
+          />
         </div>
       </div>
     </div>

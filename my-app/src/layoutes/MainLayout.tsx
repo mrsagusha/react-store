@@ -6,15 +6,18 @@ import { IItem } from '../interfaces/interfaces';
 function MainLayout({
   favouritesQuantity,
   itemsInCart,
+  toggleItemInCart,
 }: {
   favouritesQuantity: string;
   itemsInCart: IItem[];
+  toggleItemInCart(item: IItem): void;
 }) {
   return (
     <>
       <Header
         favouritesQuantity={favouritesQuantity}
         itemsInCart={itemsInCart}
+        toggleItemInCart={toggleItemInCart}
       />
       <Outlet />
     </>

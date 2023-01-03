@@ -6,6 +6,7 @@
     box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
     background-color: white;
     border-radius: 5px;
+    transition: 0.2s;
 }
 
 .itemsInCart {
@@ -29,6 +30,11 @@
 
 .itemInCartImageWrapper {
     width: 30%;
+}
+
+.itemUnderTitle {
+    padding-top: 0.3vw;
+    color: red;
 }
 
 .discount {
@@ -56,4 +62,11 @@
 .totalSum {
     font-size: 0.9vw;
     font-weight: 600;
+}
+
+.emptyCartMessage {
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: 600;
+    padding-top: 1vw;
 }

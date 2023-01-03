@@ -16,8 +16,31 @@
     width: 1.5vw;
     height: 1.5vw;
     color: black;
+    cursor: pointer;
 }
 
 .tabs {
     display: flex;
+}
+
+.itemsInCartWrapper {
+    position: relative;
+}
+
+.itemsInCartQuantityWrapper {
+    position: absolute;
+    top: -0.5vw;
+    right: -0.8vw;
+    width: 1vw;
+    height: 1vw;
+    background-color: red;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemsInCartQuantity {
+    font-size: 0.7vw;
+    color: white;
 }

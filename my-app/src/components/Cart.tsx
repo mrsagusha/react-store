@@ -2,11 +2,22 @@ import { IItem } from '../interfaces/interfaces';
 import styles from './Cart.module.css';
 import Button from './UI/Button/Button';
 
-function Cart({ itemsInCart }: { itemsInCart: IItem[] }) {
+function Cart({
+  itemsInCart,
+  isHovered,
+  toggleItemInCart,
+}: {
+  itemsInCart: IItem[];
+  isHovered: boolean;
+  toggleItemInCart(item: IItem): void;
+}) {
   return (
-    <div className={styles.cartWrapper}>
+    <div
+      className={styles.cartWrapper}
+      style={isHovered ? { display: 'block' } : { display: 'none' }}
+    >
       <div className={styles.itemsInCart}>
-        {itemsInCart.length > 0 &&
+        {itemsInCart.length > 0 ? (
           itemsInCart.map((item: IItem) => {
             return (
               <div className={styles.itemInCartWrapper}>
@@ -28,10 +39,23 @@ function Cart({ itemsInCart }: { itemsInCart: IItem[] }) {
                       className={styles.discount}
                     >{`${item?.price} $`}</span>
                   </p>
+                  <Button
+                    style={{
+                      width: '5.5vw',
+                      height: '1.2vw',
+                      fontSize: '0.5vw',
+                    }}
+                    onClick={() => toggleItemInCart(item)}
+                  >
+                    Remove from cart
+                  </Button>
                 </div>
               </div>
             );
-          })}
+          })
+        ) : (
+          <p className={styles.emptyCartMessage}>The cart is empty</p>
+        )}
       </div>
       <div className={styles.amountToBePaid}>
         <p className={styles.totalSum}>Total to be paid: </p>

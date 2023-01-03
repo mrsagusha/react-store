@@ -14,6 +14,7 @@ function SingleItem({
   toggleFavourites,
   toggleItemInCart,
   favourites,
+  itemsInCart,
 }: {
   items: IItem[];
   isLoading: boolean;
@@ -21,6 +22,7 @@ function SingleItem({
   toggleFavourites(item: IItem): void;
   toggleItemInCart(item: IItem): void;
   favourites: IItem[];
+  itemsInCart: IItem[];
 }) {
   const params = useParams();
   const item: IItem | undefined = findItem(params);
@@ -71,10 +73,14 @@ function SingleItem({
             <span className={styles.discount}>{`${item?.price} $`}</span>
           </p>
           <Button
-            style={{ marginRight: '1vw' }}
+            style={
+              itemsInCart.includes(item!)
+                ? { backgroundColor: 'white', color: 'red', marginRight: '1vw' }
+                : { marginRight: '1vw' }
+            }
             onClick={() => toggleItemInCart(item!)}
           >
-            Add to cart
+            {itemsInCart.includes(item!) ? 'In cart' : 'Add to cart'}
           </Button>
           <Button>Buy</Button>
           <p className={styles.itemUnderTitle}>Brand:</p>

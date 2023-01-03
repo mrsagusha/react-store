@@ -60,6 +60,7 @@ function App() {
               <MainLayout
                 favouritesQuantity={favouritesQuantity}
                 itemsInCart={itemsInCart}
+                toggleItemInCart={toggleItemInCartHandler}
               />
             }
           >
@@ -81,6 +82,7 @@ function App() {
                   toggleFavourites={toggleFavouritesHandler}
                   toggleItemInCart={toggleItemInCartHandler}
                   favourites={favourites}
+                  itemsInCart={itemsInCart}
                 />
               }
             />

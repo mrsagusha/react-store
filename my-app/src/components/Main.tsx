@@ -3,6 +3,7 @@ import { IItem } from '../interfaces/interfaces';
 import Item from './Item';
 import Filters from './Filters';
 import styles from './Main.module.css';
+import Loader from './UI/Loader/Loader';
 
 function Main({ items, isLoading }: { items: IItem[]; isLoading: boolean }) {
   const [searchParams, setSearchParams] = useSearchParams('');
@@ -12,7 +13,7 @@ function Main({ items, isLoading }: { items: IItem[]; isLoading: boolean }) {
       <Filters items={items} />
       <div className={styles.items}>
         {isLoading ? (
-          <h1>Loading...</h1>
+          <Loader />
         ) : (
           items
             .filter((el) => {
