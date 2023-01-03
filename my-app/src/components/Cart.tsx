@@ -57,18 +57,26 @@ function Cart({
           <p className={styles.emptyCartMessage}>The cart is empty</p>
         )}
       </div>
-      <div className={styles.amountToBePaid}>
-        <p className={styles.totalSum}>Total to be paid: </p>
-        <p className={styles.totalSum}>{`${itemsInCart.reduce(
-          (sum, item) => sum + item.price,
-          0
-        )} $`}</p>
-      </div>
-      <Button
-        style={{ display: 'block', margin: '0 auto', marginBottom: '0.5vw' }}
-      >
-        Place an order
-      </Button>
+      {itemsInCart.length > 0 && (
+        <>
+          <div className={styles.amountToBePaid}>
+            <p className={styles.totalSum}>Total to be paid: </p>
+            <p className={styles.totalSum}>{`${itemsInCart.reduce(
+              (sum, item) => sum + item.price,
+              0
+            )} $`}</p>
+          </div>
+          <Button
+            style={{
+              display: 'block',
+              margin: '0 auto',
+              marginBottom: '0.5vw',
+            }}
+          >
+            Place an order
+          </Button>
+        </>
+      )}
     </div>
   );
 }
