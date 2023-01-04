@@ -18,10 +18,26 @@ function CreditCard() {
           type="text"
           maxLength={4}
           placeholder="5280"
+          required
         />
-        <input className={styles.cardInput} type="text" maxLength={4} />
-        <input className={styles.cardInput} type="text" maxLength={4} />
-        <input className={styles.cardInput} type="text" maxLength={4} />
+        <input
+          className={styles.cardInput}
+          type="text"
+          maxLength={4}
+          required
+        />
+        <input
+          className={styles.cardInput}
+          type="text"
+          maxLength={4}
+          required
+        />
+        <input
+          className={styles.cardInput}
+          type="text"
+          maxLength={4}
+          required
+        />
         <span className={styles.instructions}>5280</span>
       </div>
       <div className={styles.date}>
@@ -33,6 +49,7 @@ function CreditCard() {
           type="text"
           maxLength={5}
           placeholder="00/00"
+          required
         />
 
         <span className={`${styles.instructions} ${styles.valid}`}>CVV</span>
@@ -41,6 +58,7 @@ function CreditCard() {
           type="text"
           maxLength={3}
           placeholder="123"
+          required
         />
       </div>
       <div className={styles.name}>
@@ -49,6 +67,7 @@ function CreditCard() {
           type="text"
           inputMode="numeric"
           placeholder="John Doe"
+          required
         />
         <span className={styles.instructions}>Name on Card</span>
       </div>

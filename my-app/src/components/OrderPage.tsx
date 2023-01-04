@@ -49,30 +49,34 @@ function OrderPage({
         <div className={styles.contactInformationWrapper}>
           <h1>Contact Information</h1>
           <div className={styles.contactInformation}>
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
               <label className={styles.orderLabel}>
                 What's your name?
                 <Input
                   style={{ marginTop: '1vw', borderColor: 'black' }}
                   placeholder="Your name"
+                  minLength={3}
+                  required
                 />
               </label>
             </form>
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
               <label className={styles.orderLabel}>
                 What's your phone number?
                 <Input
                   style={{ marginTop: '1vw', borderColor: 'black' }}
                   placeholder="Your phone"
+                  required
                 />
               </label>
             </form>
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
               <label className={styles.orderLabel}>
                 What's your e-mail?
                 <Input
                   style={{ marginTop: '1vw', borderColor: 'black' }}
                   placeholder="Your e-mail"
+                  required
                 />
               </label>
             </form>
@@ -86,6 +90,7 @@ function OrderPage({
               <Input
                 placeholder="Adress"
                 style={{ marginTop: '1vw', borderColor: 'black' }}
+                required
               />
             </label>
           </form>
@@ -113,7 +118,10 @@ function OrderPage({
         </div>
         <div className={styles.commentWrapper}>
           <h1 style={{ marginBottom: '2vw' }}>Comment</h1>
-          <form className={styles.commentForm}>
+          <form
+            className={styles.commentForm}
+            onSubmit={(e) => e.preventDefault()}
+          >
             <textarea
               className={styles.orderComment}
               placeholder="Your comment"
@@ -123,7 +131,11 @@ function OrderPage({
         <div className={styles.orderConfirmationWrapper}>
           <h1 style={{ marginBottom: '2vw' }}>Order confirmation</h1>
           <p className={styles.orderTotalSum}>{`Total: ${itemsInCart.reduce(
-            (sum, item) => sum + item.price,
+            (sum, item) =>
+              sum +
+              Math.floor(
+                item?.price! - item?.price! * (item?.discountPercentage! / 100)
+              ),
             0
           )}$`}</p>
           <Button style={{ width: '10vw', height: '2.5vw' }}>
