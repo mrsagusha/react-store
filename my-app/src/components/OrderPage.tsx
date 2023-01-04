@@ -1,11 +1,18 @@
 import { useState } from 'react';
+import { IItem } from '../interfaces/interfaces';
 import styles from './OrderPage.module.css';
 import Button from './UI/Button/Button';
 import CreditCard from './UI/CreditCard/CreditCard';
 import Input from './UI/Input/Input';
 import Payment from './UI/Payment/Payment';
 
-function OrderPage() {
+function OrderPage({
+  itemsInCart,
+  toggleItemInCart,
+}: {
+  itemsInCart: IItem[];
+  toggleItemInCart(item: IItem): void;
+}) {
   const [paymentMethod, setPaymentMethod] = useState('');
 
   function setPaymentMethodHandler(name: string) {
@@ -15,7 +22,29 @@ function OrderPage() {
   return (
     <div className={styles.wrapper}>
       <h1 style={{ marginBottom: '2vw' }}>Shopping cart</h1>
-      <div className={styles.itemsList}></div>
+      <div className={styles.itemsList}>
+        {itemsInCart.map((item: IItem) => {
+          return (
+            <div className={styles.itemInCartWrapper}>
+              <div className={styles.itemInCartImageWrapper}>
+                <img
+                  className={styles.itemInCartImage}
+                  src={item.images[0]}
+                  alt=""
+                />
+              </div>
+              <div className={styles.itemInCartDescription}>
+                <p className={styles.itemInCartTitle}>{item.title}</p>
+                <p>{item.description}</p>
+              </div>
+              <p className={styles.itemInCartPrice}>{`${Math.floor(
+                item?.price! - item?.price! * (item?.discountPercentage! / 100)
+              )} $`}</p>
+              <Button onClick={() => toggleItemInCart(item)}>Remove</Button>
+            </div>
+          );
+        })}
+      </div>
       <div className={styles.orderInfo}>
         <div className={styles.contactInformationWrapper}>
           <h1>Contact Information</h1>
@@ -93,7 +122,10 @@ function OrderPage() {
         </div>
         <div className={styles.orderConfirmationWrapper}>
           <h1 style={{ marginBottom: '2vw' }}>Order confirmation</h1>
-          <p className={styles.orderTotalSum}>Total: 21312312</p>
+          <p className={styles.orderTotalSum}>{`Total: ${itemsInCart.reduce(
+            (sum, item) => sum + item.price,
+            0
+          )}$`}</p>
           <Button style={{ width: '10vw', height: '2.5vw' }}>
             Place an order
           </Button>

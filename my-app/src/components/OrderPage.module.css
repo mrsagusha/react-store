@@ -7,6 +7,41 @@
     padding: 2vw;
 }
 
+.itemInCartWrapper {
+    display: flex;
+    gap: 2vw;
+    height: 9vw;
+    align-items: center;
+    border-top: 1px black solid;
+}
+
+.itemInCartImageWrapper {
+    width: 10%;
+}
+
+.itemInCartImage {
+    object-fit: contain;
+}
+
+.itemInCartDescription {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+    width: 50%;
+}
+
+.itemInCartTitle {
+    font-weight: 600;
+    font-size: 1.5vw;
+}
+
+.itemInCartPrice {
+    width: 4vw;
+    font-weight: 600;
+    font-size: 1.2vw;
+    margin-right: 4vw;
+}
+
 .contactInformationWrapper {
     border-bottom: 1px black solid;
     border-top: 1px black solid;

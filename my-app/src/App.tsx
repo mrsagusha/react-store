@@ -87,7 +87,15 @@ function App() {
                 />
               }
             />
-            <Route path="checkout" element={<OrderPage />} />
+            <Route
+              path="checkout"
+              element={
+                <OrderPage
+                  itemsInCart={itemsInCart}
+                  toggleItemInCart={toggleItemInCartHandler}
+                />
+              }
+            />
           </Route>
         </Routes>
       </div>
