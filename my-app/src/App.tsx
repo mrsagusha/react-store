@@ -7,6 +7,7 @@ import Cart from './components/Cart';
 import SingleItem from './components/SingleItem';
 import './App.css';
 import Favourites from './components/Favourites';
+import OrderPage from './components/OrderPage';
 
 const API_URL = 'https://dummyjson.com/products';
 
@@ -86,6 +87,7 @@ function App() {
                 />
               }
             />
+            <Route path="checkout" element={<OrderPage />} />
           </Route>
         </Routes>
       </div>

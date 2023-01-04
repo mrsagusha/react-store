@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { IItem } from '../interfaces/interfaces';
 import styles from './Cart.module.css';
 import Button from './UI/Button/Button';
@@ -66,15 +67,17 @@ function Cart({
               0
             )} $`}</p>
           </div>
-          <Button
-            style={{
-              display: 'block',
-              margin: '0 auto',
-              marginBottom: '0.5vw',
-            }}
-          >
-            Place an order
-          </Button>
+          <Link to="checkout">
+            <Button
+              style={{
+                display: 'block',
+                margin: '0 auto',
+                marginBottom: '0.5vw',
+              }}
+            >
+              Place an order
+            </Button>
+          </Link>
         </>
       )}
     </div>

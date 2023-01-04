@@ -19,7 +19,10 @@ function FiltersSection({
 
   return (
     <div className={styles.filtersSectionWrapper}>
-      <Button style={{ width: '100%' }} onClick={toggleIsActive}>
+      <Button
+        style={{ width: '100%', borderRadius: '0px' }}
+        onClick={toggleIsActive}
+      >
         {category === 'price'
           ? `${category[0].toUpperCase() + category.slice(1)}, $`
           : category[0].toUpperCase() + category.slice(1)}

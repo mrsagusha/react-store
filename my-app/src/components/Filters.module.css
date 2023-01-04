@@ -1,7 +1,8 @@
 .filters {
     width: 20%;
-    border: 1px black solid;
     margin-right: 1vw;
+    background-color: white;
+    height: 38vw;
 }
 
 .filtersWrapper {

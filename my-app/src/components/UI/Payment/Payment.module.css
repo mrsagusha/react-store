@@ -1,0 +1,34 @@
+.paymentWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+    width: 6vw;
+    text-align: center;
+}
+
+.paymentWrapper:hover {
+    cursor: pointer;
+}
+
+.paymentIconWrapper {
+    padding: 2vw;
+    border-radius: 100%;
+    border: 1px black solid;
+}
+
+.paymentIcon {
+    width: 2vw;
+    height: 2vw;
+}
+
+.paymentMethodDescription {
+    font-size: 1vw;
+}
+
+.active {
+    border: 1px red solid;
+}
+
+.active > .paymentIcon {
+    fill: red;
+}

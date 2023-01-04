@@ -1,0 +1,61 @@
+import styles from './CreditCard.module.css';
+
+function CreditCard() {
+  return (
+    <div className={styles.creditCard}>
+      <h2>Bank of Lorem</h2>
+
+      <span className={`${styles.provider} ${styles.mastercard}`}>
+        MasterCard
+      </span>
+      <span className={`${styles.provider} ${styles.amex}`}>
+        American Express
+      </span>
+      <span className={`${styles.provider} ${styles.visa}`}>Visa</span>
+      <div className={styles.number}>
+        <input
+          className={styles.cardInput}
+          type="text"
+          maxLength={4}
+          placeholder="5280"
+        />
+        <input className={styles.cardInput} type="text" maxLength={4} />
+        <input className={styles.cardInput} type="text" maxLength={4} />
+        <input className={styles.cardInput} type="text" maxLength={4} />
+        <span className={styles.instructions}>5280</span>
+      </div>
+      <div className={styles.date}>
+        <span className={`${styles.instructions} ${styles.valid}`}>
+          Valid Thru
+        </span>
+        <input
+          className={styles.cardInput}
+          type="text"
+          maxLength={5}
+          placeholder="00/00"
+        />
+
+        <span className={`${styles.instructions} ${styles.valid}`}>CVV</span>
+        <input
+          className={styles.cardInput}
+          type="text"
+          maxLength={3}
+          placeholder="123"
+        />
+      </div>
+      <div className={styles.name}>
+        <input
+          className={`${styles.fullName} ${styles.cardInput}`}
+          type="text"
+          inputMode="numeric"
+          placeholder="John Doe"
+        />
+        <span className={styles.instructions}>Name on Card</span>
+      </div>
+      <div className={styles.shine}></div>
+      <div className={`${styles.shine} ${styles.shineLayerTwo}`}></div>
+    </div>
+  );
+}
+
+export default CreditCard;

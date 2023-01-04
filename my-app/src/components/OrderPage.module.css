@@ -1,0 +1,68 @@
+.wrapper {
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 3vw;
+    background-color: white;
+    min-height: 100%;
+    padding: 2vw;
+}
+
+.contactInformationWrapper {
+    border-bottom: 1px black solid;
+    border-top: 1px black solid;
+    padding: 2vw 0;
+}
+
+.contactInformation {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2vw;
+}
+
+.orderLabel {
+    font-size: 1vw;
+}
+
+.deliveryInformationWrapper {
+    border-bottom: 1px black solid;
+    padding: 2vw 0;
+}
+
+.paymentInforamationWrapper {
+    border-bottom: 1px black solid;
+    padding: 2vw 0;
+}
+
+.paymentInforamation {
+    display: flex;
+    justify-content: space-around;
+}
+
+.commentWrapper {
+    border-bottom: 1px black solid;
+    padding: 2vw 0;
+}
+
+.commentForm {
+    display: block;
+    width: 100%
+}
+
+.orderComment {
+    width: 40%;
+    height: 5vw;
+    font-size: 1.2vw;
+    border-radius: 5px;
+    padding: 0.2vw;
+    resize: none;
+    outline: none;
+}
+
+.orderConfirmationWrapper {
+    padding: 2vw 0 1vw 0;
+}
+
+.orderTotalSum {
+    font-size: 1.6vw;
+    margin: 2vw 0;
+}
