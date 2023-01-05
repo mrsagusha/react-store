@@ -1,3 +1,4 @@
+import { useSearchParams } from 'react-router-dom';
 import { IItem } from '../interfaces/interfaces';
 import styles from './FiltersCheckboxes.module.css';
 import InputRange from './UI/Input/InputRange';
@@ -11,6 +12,8 @@ function FiltersCheckboxes({
   items: IItem[];
   category: keyof Omit<IItem, 'images'>;
 }) {
+  const [searchParams, setSearchParams] = useSearchParams();
+
   function findMaxValue(category: keyof Omit<IItem, 'images'>): number {
     let maxValue = 0;
     items.forEach((item: IItem) => {
@@ -49,7 +52,44 @@ function FiltersCheckboxes({
         filterReccuringCategories(items, category).map((item: IItem) => {
           return (
             <label className={styles.checkboxLabel} key={item.id}>
-              <input className={styles.checkbox} type="checkbox" />
+              <input
+                className={styles.checkbox}
+                type="checkbox"
+                checked={
+                  searchParams.get(category)
+                    ? searchParams
+                        .get(category)!
+                        .split('+')
+                        .includes(`${item[category]}`)
+                      ? true
+                      : false
+                    : false
+                }
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    if (searchParams.get(category)) {
+                      searchParams.set(
+                        category,
+                        `${searchParams.get(category)}+${item[category]}`
+                      );
+                      setSearchParams(searchParams);
+                    } else {
+                      searchParams.set(category, `${item[category]}`);
+                      setSearchParams(searchParams);
+                    }
+                  } else {
+                    searchParams.set(
+                      category,
+                      searchParams
+                        .get(category)!
+                        .split('+')
+                        .filter((el) => el !== `${item[category]}`)
+                        .join('+')
+                    );
+                    setSearchParams(searchParams);
+                  }
+                }}
+              />
               {item[category]}
             </label>
           );

@@ -45,6 +45,20 @@ function Main({
               }
               return el;
             })
+            .filter((el) => {
+              if (searchParams.get('category')) {
+                if (
+                  searchParams.get('category')!.split('+').includes(el.category)
+                )
+                  return el;
+              } else return el;
+            })
+            .filter((el) => {
+              if (searchParams.get('brand')) {
+                if (searchParams.get('brand')!.split('+').includes(el.brand))
+                  return el;
+              } else return el;
+            })
             .map((el) => {
               return (
                 <Link to={el.title} key={el.id}>

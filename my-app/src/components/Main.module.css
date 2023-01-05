@@ -1,5 +1,6 @@
 .main {
     display: flex;
+    gap: 3vw;
     width: 80%;
     margin: 0 auto;
     padding-top: 2vw;
