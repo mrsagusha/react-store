@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { IItem, IData } from './interfaces/interfaces';
 import Main from './components/Main';
 import MainLayout from './layoutes/MainLayout';
-import Cart from './components/Cart';
 import SingleItem from './components/SingleItem';
 import './App.css';
 import Favourites from './components/Favourites';
@@ -17,6 +16,7 @@ function App() {
   const [favourites, setFavourites] = useState<IItem[]>([]);
   const [favouritesQuantity, setFavouritesQuantity] = useState('0');
   const [itemsInCart, setItemsInCart] = useState<IItem[]>([]);
+  const [params, setParams] = useState({});
 
   useEffect(() => {
     fetch(API_URL)
@@ -48,7 +48,6 @@ function App() {
     } else {
       setItemsInCart([...itemsInCart.filter((el: IItem) => el !== item)]);
     }
-    console.log(itemsInCart);
   }
 
   return (

@@ -17,7 +17,8 @@ function Search() {
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    setSearchParams({ search: searchText });
+    searchParams.set('search', searchText);
+    setSearchParams(searchParams);
   };
 
   return (

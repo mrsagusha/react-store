@@ -21,12 +21,10 @@ function Header({
 
   function changeHoveredOverHandler() {
     setIsHovered(true);
-    console.log(isHovered);
   }
 
   function changeHoveredOutHandler() {
     setIsHovered(false);
-    console.log(isHovered);
   }
 
   return (

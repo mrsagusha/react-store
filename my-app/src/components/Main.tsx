@@ -25,6 +25,18 @@ function Main({ items, isLoading }: { items: IItem[]; isLoading: boolean }) {
 
               return el;
             })
+            .filter((el) => {
+              if (searchParams.get('price')) {
+                return el.price >= parseInt(searchParams.get('price')!);
+              }
+              return el;
+            })
+            .filter((el) => {
+              if (searchParams.get('stock')) {
+                return el.stock >= parseInt(searchParams.get('stock')!);
+              }
+              return el;
+            })
             .map((el) => {
               return (
                 <Link to={el.title} key={el.id}>

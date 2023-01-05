@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { IItem } from '../interfaces/interfaces';
 import styles from './FiltersCheckboxes.module.css';
-import Input from './UI/Input/Input';
 import InputRange from './UI/Input/InputRange';
 
 function FiltersCheckboxes({
@@ -46,7 +44,7 @@ function FiltersCheckboxes({
       }
     >
       {category === 'price' || category === 'stock' ? (
-        <InputRange maxValue={findMaxValue(category)} />
+        <InputRange maxValue={findMaxValue(category)} category={category} />
       ) : (
         filterReccuringCategories(items, category).map((item: IItem) => {
           return (
