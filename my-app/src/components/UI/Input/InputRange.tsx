@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Input from './Input';
 import styles from './InputRange.module.css';
@@ -12,6 +12,10 @@ function InputRange({
 }) {
   const [inputValue, setInputValue] = useState('0');
   const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.get(category)) setInputValue(searchParams.get(category)!);
+  }, []);
 
   return (
     <div className={styles.inputRangeWrapper}>

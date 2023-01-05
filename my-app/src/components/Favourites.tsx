@@ -19,7 +19,10 @@ function Favourites({ favourites }: { favourites: IItem[] }) {
             <Fragment key={el.id}>
               <hr />
               <div className={styles.favouritesItem}>
-                <Link style={{ textAlign: 'center' }} to={`/${el.title}`}>
+                <Link
+                  style={{ textAlign: 'center', overflow: 'hidden' }}
+                  to={`/${el.title}`}
+                >
                   <img
                     className={styles.favouritesItemImage}
                     src={el.images[0]}
