@@ -1,5 +1,5 @@
 import { IItem } from '../interfaces/interfaces';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { Params } from 'react-router-dom';
 import Button from './UI/Button/Button';
@@ -15,6 +15,7 @@ function SingleItem({
   toggleItemInCart,
   favourites,
   itemsInCart,
+  addItemInCart,
 }: {
   items: IItem[];
   isLoading: boolean;
@@ -23,6 +24,7 @@ function SingleItem({
   toggleItemInCart(item: IItem): void;
   favourites: IItem[];
   itemsInCart: IItem[];
+  addItemInCart(item: IItem): void;
 }) {
   const params = useParams();
   const item: IItem | undefined = findItem(params);
@@ -82,7 +84,9 @@ function SingleItem({
           >
             {itemsInCart.includes(item!) ? 'In cart' : 'Add to cart'}
           </Button>
-          <Button>Buy</Button>
+          <Link to="/checkout">
+            <Button onClick={() => addItemInCart(item!)}>Buy</Button>
+          </Link>
           <p className={styles.itemUnderTitle}>Brand:</p>
           <p>{item?.brand}</p>
           <p className={styles.itemUnderTitle}>Description:</p>

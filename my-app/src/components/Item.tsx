@@ -4,8 +4,15 @@ import Button from './UI/Button/Button';
 import RatingStars from './UI/RatingStars/RatingStars';
 import styles from './Item.module.css';
 import Loader from './UI/Loader/Loader';
+import { Link } from 'react-router-dom';
 
-function Item(props: IItem) {
+function Item({
+  props,
+  addItemInCart,
+}: {
+  props: IItem;
+  addItemInCart(item: IItem): void;
+}) {
   const [isLoad, setIsLoad] = useState(false);
 
   useEffect(() => {
@@ -39,7 +46,9 @@ function Item(props: IItem) {
           )} $`}
           <span className={styles.discount}>{`${props.price} $`}</span>
         </p>
-        <Button>Buy</Button>
+        <Link to="/checkout">
+          <Button onClick={() => addItemInCart(props)}>Buy</Button>
+        </Link>
       </div>
     </div>
   );

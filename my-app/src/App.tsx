@@ -16,7 +16,6 @@ function App() {
   const [favourites, setFavourites] = useState<IItem[]>([]);
   const [favouritesQuantity, setFavouritesQuantity] = useState('0');
   const [itemsInCart, setItemsInCart] = useState<IItem[]>([]);
-  const [params, setParams] = useState({});
 
   useEffect(() => {
     fetch(API_URL)
@@ -39,6 +38,12 @@ function App() {
     } else {
       setFavourites([...favourites.filter((el: IItem) => el !== item)]);
       setFavouritesQuantity((+favouritesQuantity - 1).toString());
+    }
+  }
+
+  function addItemInCartHandler(item: IItem) {
+    if (!itemsInCart.includes(item)) {
+      setItemsInCart([item]);
     }
   }
 
@@ -66,11 +71,22 @@ function App() {
           >
             <Route
               index
-              element={<Main items={items} isLoading={isLoading} />}
+              element={
+                <Main
+                  items={items}
+                  isLoading={isLoading}
+                  addItemInCart={addItemInCartHandler}
+                />
+              }
             />
             <Route
               path="favourites"
-              element={<Favourites favourites={favourites} />}
+              element={
+                <Favourites
+                  favourites={favourites}
+                  addItemInCart={addItemInCartHandler}
+                />
+              }
             />
             <Route
               path="/:title"
@@ -83,6 +99,7 @@ function App() {
                   toggleItemInCart={toggleItemInCartHandler}
                   favourites={favourites}
                   itemsInCart={itemsInCart}
+                  addItemInCart={addItemInCartHandler}
                 />
               }
             />

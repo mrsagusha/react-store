@@ -5,7 +5,15 @@ import Filters from './Filters';
 import styles from './Main.module.css';
 import Loader from './UI/Loader/Loader';
 
-function Main({ items, isLoading }: { items: IItem[]; isLoading: boolean }) {
+function Main({
+  items,
+  isLoading,
+  addItemInCart,
+}: {
+  items: IItem[];
+  isLoading: boolean;
+  addItemInCart(item: IItem): void;
+}) {
   const [searchParams, setSearchParams] = useSearchParams('');
 
   return (
@@ -40,7 +48,7 @@ function Main({ items, isLoading }: { items: IItem[]; isLoading: boolean }) {
             .map((el) => {
               return (
                 <Link to={el.title} key={el.id}>
-                  <Item {...el} />
+                  <Item props={el} addItemInCart={addItemInCart} />
                 </Link>
               );
             })

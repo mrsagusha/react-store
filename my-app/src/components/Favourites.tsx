@@ -3,9 +3,14 @@ import { Link } from 'react-router-dom';
 import { IItem } from '../interfaces/interfaces';
 import styles from './Favourites.module.css';
 import Button from './UI/Button/Button';
-import FavouritesButton from './UI/Favourites/FavouritesButton';
 
-function Favourites({ favourites }: { favourites: IItem[] }) {
+function Favourites({
+  favourites,
+  addItemInCart,
+}: {
+  favourites: IItem[];
+  addItemInCart(item: IItem): void;
+}) {
   return (
     <div className={styles.favouritesItemsWrapper}>
       <h1 style={{ paddingBottom: '1vw' }}>Favourites</h1>
@@ -40,7 +45,15 @@ function Favourites({ favourites }: { favourites: IItem[] }) {
                     )} $`}</p>
                     <p className={styles.discount}>{`${el.price} $`}</p>
                   </div>
-                  <Button>Buy</Button>
+                  <Link to="/checkout">
+                    <Button
+                      onClick={() => {
+                        addItemInCart(el);
+                      }}
+                    >
+                      Buy
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </Fragment>
