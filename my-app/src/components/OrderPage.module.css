@@ -101,3 +101,30 @@
     font-size: 1.6vw;
     margin: 2vw 0;
 }
+
+.orderForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: unset;
+}
+
+.inputForm {
+    width: 90%;
+    height: 35px;
+    font-size: 20px;
+    font-weight: 400;
+    outline: none;
+    border: 1px black solid;
+    border-radius: 5px;
+    padding-left: 0.5vw;
+    margin-top: 1vw;
+}
+
+.errorWrapper {
+    margin-top: 0.5vw;
+}
+
+.errorMessage {
+    color: red;
+}

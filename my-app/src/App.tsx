@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route, Params } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { IItem, IData } from './interfaces/interfaces';
+import './App.css';
 import Main from './components/Main';
 import MainLayout from './layoutes/MainLayout';
 import SingleItem from './components/SingleItem';
-import './App.css';
 import Favourites from './components/Favourites';
 import OrderPage from './components/OrderPage';
 

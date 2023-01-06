@@ -20,6 +20,7 @@ function MainLayout({
         toggleItemInCart={toggleItemInCart}
       />
       <Outlet />
+      <Footer />
     </>
   );
 }

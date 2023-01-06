@@ -1,0 +1,22 @@
+@import "../css/fonts.css";
+
+.footerWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2vw;
+    margin-top: 1vw;
+    height: 5vw;
+    background-color: rgb(70, 68, 68);
+}
+
+.footerDateInfo {
+    font-family: "Roboto-Light" ;
+    font-size: 1vw;
+    color: white;
+}
+
+.gitHubLogo {
+    height: 3vw;
+    width: 3vw;
+}

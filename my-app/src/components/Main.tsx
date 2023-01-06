@@ -35,7 +35,11 @@ function Main({
             })
             .filter((el) => {
               if (searchParams.get('price')) {
-                return el.price >= parseInt(searchParams.get('price')!);
+                return (
+                  Math.floor(
+                    el?.price! - el?.price! * (el?.discountPercentage! / 100)
+                  ) >= parseInt(searchParams.get('price')!)
+                );
               }
               return el;
             })
